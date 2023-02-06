@@ -1,5 +1,7 @@
-baseURL = "https://tmcdigitech.github.io/7/"
-title = "7 Digital Tech"
+baseURL = "https://tmcdigitech.github.io/9"
+title = "9 Digital Tech"
+
+theme = ["docsy"]
 
 # Language settings
 contentDir = "content/en"
@@ -37,7 +39,7 @@ pygmentsCodeFences = true
 pygmentsUseClasses = false
 # Use the new Chroma Go highlighter in Hugo.
 pygmentsUseClassic = false
-# pygmentsOptions = "linenos=table"
+pygmentsOptions = "linenos=table"
 # See https://help.farbox.com/pygments.html
 pygmentsStyle = "dracula"
 
@@ -60,7 +62,7 @@ anchor = "smart"
 
 [languages]
 [languages.en]
-title = "7 Digital Tech"
+title = "9 Digital Tech"
 # description = "A Docsy example site"
 languageName ="English"
 # Weight used for sorting.
@@ -130,6 +132,9 @@ offlineSearch = true
 
 # Enable syntax highlighting and copy buttons on code blocks with Prism
 prism_syntax_highlighting = false
+
+[params.katex]
+enable = true
 
 # User interface configuration
 [params.ui]
@@ -210,3 +215,8 @@ enable = true
   [[module.imports]]
     path = "github.com/google/docsy/dependencies"
     disable = false
+
+[outputFormats.Reveal]
+baseName = "index"
+mediaType = "text/html"
+isHTML = true

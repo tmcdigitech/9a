@@ -1,0 +1,19 @@
+<div class="reveal deck_{{ .Get 0 }}" style="height: 10rem; margin: 20px 0;">
+    <div class="slides">
+        <section data-markdown="{{ .Get 0 }}.mds" data-separator="^\n\n\n" data-separator-vertical="^\n\n"></section>
+    </div>
+</div>
+<script>
+    let {{ .Get 0 | safeJS }} = new Reveal( document.querySelector( '.deck_{{ .Get 0 }}' ), {
+        embedded: true,
+        progress: false,
+        
+        keyboardCondition: 'focused',
+        transition: 'slide',
+        plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+    } );
+    {{ .Get 0 | safeJS }}.on( 'slidechanged', () => {
+        console.log( '{{ .Get 0 }} slide changed' );
+    } );
+    {{ .Get 0 | safeJS }}.initialize();
+</script>

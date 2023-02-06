@@ -1,0 +1,40 @@
+{{ with .Params.reveal }}
+    <link rel="stylesheet" href="{{ site.BaseURL }}/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="{{ site.BaseURL }}/reveal.js/dist/theme/draculaTMC.css" id="theme">
+
+    <link rel="stylesheet" href="{{ site.BaseURL }}/reveal.js/plugin/highlight/dracula.css">
+
+    <script src="{{ site.BaseURL }}/reveal.js/dist/reveal.js"></script>
+    <script src="{{ site.BaseURL }}/reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="{{ site.BaseURL }}/reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="{{ site.BaseURL }}/reveal.js/plugin/notes/notes.js"></script>
+    <script src="{{ site.BaseURL }}/reveal.js/plugin/math/math.js"></script>
+
+    <script>
+        const controlChannel = new BroadcastChannel('controller');
+        let remoteSlide = { indexh: -1, indexv: -1 };
+
+        Reveal.initialize({
+            controls: true,
+            progress: false,
+            // embedded: true,
+            // history: true,
+            center: true,
+            plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+        });
+
+        Reveal.addEventListener('slidechanged', function (event) {
+            if (remoteSlide.indexh !== event.indexh || remoteSlide.indexv !== event.indexv) {
+                remoteSlide = { indexh: -1, indexv: -1 };
+                controlChannel.postMessage({
+                    "indexh": event.indexh,
+                    "indexv": event.indexv
+                });
+            }
+        });
+        controlChannel.onmessage = function (event) {
+            remoteSlide = event.data;
+            Reveal.slide(event.data.indexh, event.data.indexv);
+        }
+    </script>
+{{ end }}

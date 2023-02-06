@@ -4,16 +4,16 @@ Add styles or override variables from the theme here.
 
 */
 
-$google_font_name: "Montserrat";
-$google_font_family: "Montserrat:300,300i,400,400i,700,700i";
+$google_font_name: "Atkinson Hyperlegible";
+$google_font_family: "Atkinson+Hyperlegible:400,400i,700,700i";
 
 @import url('//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css');
 
-$font-family-monospace: Consolas, "Hack", "Monaco";
+$font-family-monospace: "Hack", Consolas, "Menlo", monospace;
 
 code[class*=language-], pre[class*=language-]{
-    font-family: "Hack";
+    font-family: "Hack", Consolas, "Menlo", monospace;
 }
 
-$primary: #02362b;
-$secondary: #882635;
+$primary: #3D348B;
+$secondary: #D81159;
