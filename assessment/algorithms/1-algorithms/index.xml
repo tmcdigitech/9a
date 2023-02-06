@@ -1,0 +1,359 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>9 Digital Tech – 1: Algorithms Folio</title><link>https://tmcdigitech.github.io/9/assessment/algorithms/1-algorithms/</link><description>Recent content in 1: Algorithms Folio on 9 Digital Tech</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://tmcdigitech.github.io/9/assessment/algorithms/1-algorithms/index.xml" rel="self" type="application/rss+xml"/><item><title>Assessment: Sequence</title><link>https://tmcdigitech.github.io/9/assessment/algorithms/1-algorithms/sequence/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://tmcdigitech.github.io/9/assessment/algorithms/1-algorithms/sequence/</guid><description>
+&lt;p>&lt;em>from &lt;a href="https://thecomputing.zone/Python/15-Challenges/">The Computing Zone&lt;/a>&lt;/em>&lt;/p>
+&lt;h2 id="file-management">File management&lt;/h2>
+&lt;p>You will need to save each of the tasks in this set in its own file, with a simple naming system:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>1. Three in, three out&lt;/strong> should be in a file named &lt;code>ex1.py&lt;/code>,&lt;/li>
+&lt;li>&lt;strong>2. Name swapper&lt;/strong> should be in a file named &lt;code>ex2.py&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>and so on.&lt;/p>
+&lt;p>You will be submitting these files to a system which will mark them automatically.
+Since they&amp;rsquo;ll be marked by a computer, and computers are terminally stupid, you
+will need to make sure that your files are labelled correctly, or the computer
+will assume you haven&amp;rsquo;t done that particular exercise. You will also need to
+make sure your output exactly matches the examples, down to capitalisation,
+spelling, line breaks and spaces.&lt;/p>
+&lt;p>You need to make sure each of your exercises uses this code layout. Replace
+the included example (which is exercise 2 from the sequence section) with your code.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">def&lt;/span> &lt;span style="color:#50fa7b">ex&lt;/span>(&lt;span style="color:#8be9fd;font-style:italic">input&lt;/span>,&lt;span style="color:#8be9fd;font-style:italic">print&lt;/span>):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#6272a4"># your program goes below here&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#6272a4"># vvvvvvvvvvvvvvvvvvvvvvvvvvvv&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8be9fd;font-style:italic">print&lt;/span>(&lt;span style="color:#f1fa8c">&amp;#34;What is your first name?&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> fname &lt;span style="color:#ff79c6">=&lt;/span> &lt;span style="color:#8be9fd;font-style:italic">input&lt;/span>(&lt;span style="color:#f1fa8c">&amp;#34;&amp;gt; &amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8be9fd;font-style:italic">print&lt;/span>(&lt;span style="color:#f1fa8c">&amp;#34;What is your surname?&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sname &lt;span style="color:#ff79c6">=&lt;/span> &lt;span style="color:#8be9fd;font-style:italic">input&lt;/span>(&lt;span style="color:#f1fa8c">&amp;#34;&amp;gt; &amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8be9fd;font-style:italic">print&lt;/span>(&lt;span style="color:#f1fa8c">f&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;&lt;/span>&lt;span style="color:#f1fa8c">{&lt;/span>sname&lt;span style="color:#f1fa8c">}&lt;/span>&lt;span style="color:#f1fa8c"> &lt;/span>&lt;span style="color:#f1fa8c">{&lt;/span>fname&lt;span style="color:#f1fa8c">}&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#6272a4"># ^^^^^^^^^^^^^^^^^^^^^^^^^^^^&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#6272a4"># your program goes above here&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">if&lt;/span> __name__ &lt;span style="color:#ff79c6">==&lt;/span> &lt;span style="color:#f1fa8c">&amp;#34;__main__&amp;#34;&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ex(&lt;span style="color:#8be9fd;font-style:italic">input&lt;/span>,&lt;span style="color:#8be9fd;font-style:italic">print&lt;/span>)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="1-three-in-three-out">1. Three in, three out&lt;/h2>
+&lt;p>&lt;em>Introduces:&lt;/em> &lt;a href="https://www.w3schools.com/python/ref_func_print.asp">&lt;code>print()&lt;/code>&lt;/a>, &lt;a href="https://www.w3schools.com/python/ref_func_input.asp">&lt;code>input()&lt;/code>&lt;/a>, &lt;a href="https://www.w3schools.com/python/python_variables.asp">variables&lt;/a>&lt;/p>
+&lt;p>Write a program that will allow a user to enter their name (string), their age (integer) and their favourite TV program (string). The program will then display the information entered and some additional text on separate lines. An example of the input and output from the program is shown below.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-md" data-lang="md">&lt;span style="display:flex;">&lt;span>What is your name?
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">Lister
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>What is your age?
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">39
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>What is your favourite TV program?
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">Red Dwarf
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>Lister
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>is
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>39
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>years old and likes
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Red Dwarf
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="2-name-swapper">2. Name swapper&lt;/h2>
+&lt;p>&lt;em>Introduces:&lt;/em> &lt;a href="https://www.w3schools.com/python/python_strings_concatenate.asp">string concatenation&lt;/a>&lt;/p>
+&lt;p>Write a program that will ask the user to type in their first name and surname. The program will then display the two names in reverse order.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-md" data-lang="md">&lt;span style="display:flex;">&lt;span>What is your first name?
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">David
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>What is your surname?
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">Tennant
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>Tennant David
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="3-three-in-three-out-formatted">3. Three in, three out (formatted)&lt;/h2>
+&lt;p>&lt;em>Introduces:&lt;/em> &lt;a href="https://www.freecodecamp.org/news/python-f-strings-tutorial-how-to-use-f-strings-for-string-formatting/">f-strings&lt;/a>&lt;/p>
+&lt;p>Now edit program 1 so that the information entered is displayed differently as shown in the output box below. Note - your output will now have to display variables and text together.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-md" data-lang="md">&lt;span style="display:flex;">&lt;span>What is your name?
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">Lister
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>What is your age?
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">39
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>What is your favourite TV program?
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">Red Dwarf
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>Lister 39
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Likes watching Red Dwarf
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="4-area-of-a-rectangle">4. Area of a rectangle&lt;/h2>
+&lt;p>&lt;em>Introduces:&lt;/em> &lt;a href="https://www.w3schools.com/python/python_datatypes.asp">data types&lt;/a>,
+&lt;a href="https://www.w3schools.com/python/python_casting.asp">casting&lt;/a>, &lt;a href="https://www.w3schools.com/python/python_operators.asp">maths operators&lt;/a>&lt;/p>
+&lt;p>Ask the user to enter the length and width of a rectangle. Your program should calculate the area of the rectangle (length*width) and display the result with a suitable message.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-md" data-lang="md">&lt;span style="display:flex;">&lt;span>Please enter the following values in cm.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Please enter the length of the rectangle.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">12
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>Please enter the width of the rectangle.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">6
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>The area of the rectangle is:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>72 square centimetres
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="5-area-of-a-circle">5. Area of a circle&lt;/h2>
+&lt;p>Ask your user to enter the radius of a circle. Your program should use what they have entered to
+calculate the area of the circle \(A = \pi r^2\) and display the result.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-md" data-lang="md">&lt;span style="display:flex;">&lt;span>Please enter the following values in cm.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Please enter the radius of the circle.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">16
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>The area of the circle is:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>803.84 square centimetres
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="6-number-cruncher">6. Number cruncher&lt;/h2>
+&lt;p>Write a program that inputs two individual integers between 0 and 9. The program should then
+combine the inputs to form a single number in a third variable. The program should show the equation of multiplying the three numbers together and the result, as shown in the example.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-md" data-lang="md">&lt;span style="display:flex;">&lt;span>Enter the first number (0-9).
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">2
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>Enter the second number (0-9).
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">3
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>2 x 3 x 23 = 138
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="7-address-formatter">7. Address formatter&lt;/h2>
+&lt;p>A program is required to format and store a users address in a single string. The user should be asked these questions:&lt;/p>
+&lt;p>What is your house number?
+What is the name of your street?
+What suburb/town do you live in?
+What is your postcode?&lt;/p>
+&lt;p>The program will then combine the user&amp;rsquo;s answers in a single string, formatted as shown in the example. The program will display the string on the screen.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-md" data-lang="md">&lt;span style="display:flex;">&lt;span>What is your house number?
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">13
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>What is the name of your street?
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">Aberlove Drive
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>What suburb/town do you live in?
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">Buckhaven
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>What is your postcode?
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">4039
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>13 Aberlove Drive
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>BUCKHAVEN 4039
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="font-weight:bold">## 8. Super smart name swapper (extension)
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="font-weight:bold">&lt;/span>Ask the user to enter their full name on one line, and display their name in reverse order.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>```md
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>What is your full name?
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">David Tennant
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>Tennant David
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Assessment: Selection</title><link>https://tmcdigitech.github.io/9/assessment/algorithms/1-algorithms/selection/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://tmcdigitech.github.io/9/assessment/algorithms/1-algorithms/selection/</guid><description>
+&lt;p>&lt;em>from &lt;a href="https://thecomputing.zone/Python/15-Challenges/">The Computing Zone&lt;/a>&lt;/em>&lt;/p>
+&lt;h2 id="file-management">File management&lt;/h2>
+&lt;p>You will need to save each of the tasks in this set in its own file, with a simple naming system:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>9. Advice please&lt;/strong> should be in a file named &lt;code>ex9.py&lt;/code>,&lt;/li>
+&lt;li>&lt;strong>10. Darts&lt;/strong> should be in a file named &lt;code>ex10.py&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>and so on.&lt;/p>
+&lt;p>You will be submitting these files to a system which will mark them automatically.
+Since they&amp;rsquo;ll be marked by a computer, and computers are terminally stupid, you
+will need to make sure that your files are labelled correctly, or the computer
+will assume you haven&amp;rsquo;t done that particular exercise. You will also need to
+make sure your output exactly matches the examples, down to capitalisation,
+spelling, line breaks and spaces.&lt;/p>
+&lt;p>You need to make sure each of your exercises uses this code layout. Replace
+the included example (which is exercise 2 from the sequence section) with your code.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">def&lt;/span> &lt;span style="color:#50fa7b">ex&lt;/span>(&lt;span style="color:#8be9fd;font-style:italic">input&lt;/span>,&lt;span style="color:#8be9fd;font-style:italic">print&lt;/span>):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#6272a4"># your program goes below here&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#6272a4"># vvvvvvvvvvvvvvvvvvvvvvvvvvvv&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8be9fd;font-style:italic">print&lt;/span>(&lt;span style="color:#f1fa8c">&amp;#34;What is your first name?&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> fname &lt;span style="color:#ff79c6">=&lt;/span> &lt;span style="color:#8be9fd;font-style:italic">input&lt;/span>(&lt;span style="color:#f1fa8c">&amp;#34;&amp;gt; &amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8be9fd;font-style:italic">print&lt;/span>(&lt;span style="color:#f1fa8c">&amp;#34;What is your surname?&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sname &lt;span style="color:#ff79c6">=&lt;/span> &lt;span style="color:#8be9fd;font-style:italic">input&lt;/span>(&lt;span style="color:#f1fa8c">&amp;#34;&amp;gt; &amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8be9fd;font-style:italic">print&lt;/span>(&lt;span style="color:#f1fa8c">f&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;&lt;/span>&lt;span style="color:#f1fa8c">{&lt;/span>sname&lt;span style="color:#f1fa8c">}&lt;/span>&lt;span style="color:#f1fa8c"> &lt;/span>&lt;span style="color:#f1fa8c">{&lt;/span>fname&lt;span style="color:#f1fa8c">}&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#6272a4"># ^^^^^^^^^^^^^^^^^^^^^^^^^^^^&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#6272a4"># your program goes above here&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">if&lt;/span> __name__ &lt;span style="color:#ff79c6">==&lt;/span> &lt;span style="color:#f1fa8c">&amp;#34;__main__&amp;#34;&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ex(&lt;span style="color:#8be9fd;font-style:italic">input&lt;/span>,&lt;span style="color:#8be9fd;font-style:italic">print&lt;/span>)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="9-advice-please">9. Advice please&lt;/h2>
+&lt;p>Write a program that asks the user if they would like some advice. If they enter Y, provide them with an amusing message.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-md" data-lang="md">&lt;span style="display:flex;">&lt;span>Would you like some advice?
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">Y
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>Always know where your towel is.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-md" data-lang="md">&lt;span style="display:flex;">&lt;span>Would you like some advice?
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">N
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="10-darts">10. Darts&lt;/h2>
+&lt;p>During a game of darts, the highest score that can be achieved in a single turn is 180. The lowest is 0.
+Write a program that will allow a dart player to enter their score. The program should congratulate the player if their score was over 100. If the player scores less than 10 they should be told that some practice is required.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-md" data-lang="md">&lt;span style="display:flex;">&lt;span>Please enter your score:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">125
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>What a great score! Well done.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-md" data-lang="md">&lt;span style="display:flex;">&lt;span>Please enter your score:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">7
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>That was rubbish. Get practising!
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="11-charity-collection">11. Charity Collection&lt;/h2>
+&lt;p>Three friends have been collecting money for charity. A local company has offered to double the amount of money they collect if they raise over $1000. Write a program that allows the friends to enter their individual amounts. The program should then add the three amounts and store the total. If the total is greater or equal to $1000 the total should be doubled. Finally the total should be displayed.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-md" data-lang="md">&lt;span style="display:flex;">&lt;span>Enter the first amount raised.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">398
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>Enter the second amount raised.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">193
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>Enter the third amount raised.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">478
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>A total of $1069 was raised.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>This will be doubled to $2138.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="12-solid-liquid-gas">12. Solid, Liquid, Gas&lt;/h2>
+&lt;p>At normal atmospheric pressure, water is a solid at or below 0°C, a gas above 100°C, and a liquid in the middle. Write a program that will return &lt;em>solid&lt;/em>, &lt;em>liquid&lt;/em> or &lt;em>gas&lt;/em> to the user depending on the temperature they enter.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-md" data-lang="md">&lt;span style="display:flex;">&lt;span>Enter the current temperature.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">78
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>At 78°C, water will be a liquid.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Assessment: Iteration</title><link>https://tmcdigitech.github.io/9/assessment/algorithms/1-algorithms/iteration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://tmcdigitech.github.io/9/assessment/algorithms/1-algorithms/iteration/</guid><description>
+&lt;p>&lt;em>from &lt;a href="https://thecomputing.zone/Python/15-Challenges/">The Computing Zone&lt;/a>&lt;/em>&lt;/p>
+&lt;h2 id="file-management">File management&lt;/h2>
+&lt;p>You will need to save each of the tasks in this set in its own file, with a simple naming system:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>13. Lines cheat&lt;/strong> should be in a file named &lt;code>ex13.py&lt;/code>,&lt;/li>
+&lt;li>&lt;strong>14. Cricket over&lt;/strong> should be in a file named &lt;code>ex14.py&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>and so on.&lt;/p>
+&lt;p>You will be submitting these files to a system which will mark them automatically.
+Since they&amp;rsquo;ll be marked by a computer, and computers are terminally stupid, you
+will need to make sure that your files are labelled correctly, or the computer
+will assume you haven&amp;rsquo;t done that particular exercise. You will also need to
+make sure your output exactly matches the examples, down to capitalisation,
+spelling, line breaks and spaces.&lt;/p>
+&lt;p>You need to make sure each of your exercises uses this code layout. Replace
+the included example (which is exercise 2 from the sequence section) with your code.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">def&lt;/span> &lt;span style="color:#50fa7b">ex&lt;/span>(&lt;span style="color:#8be9fd;font-style:italic">input&lt;/span>,&lt;span style="color:#8be9fd;font-style:italic">print&lt;/span>):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#6272a4"># your program goes below here&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#6272a4"># vvvvvvvvvvvvvvvvvvvvvvvvvvvv&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8be9fd;font-style:italic">print&lt;/span>(&lt;span style="color:#f1fa8c">&amp;#34;What is your first name?&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> fname &lt;span style="color:#ff79c6">=&lt;/span> &lt;span style="color:#8be9fd;font-style:italic">input&lt;/span>(&lt;span style="color:#f1fa8c">&amp;#34;&amp;gt; &amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8be9fd;font-style:italic">print&lt;/span>(&lt;span style="color:#f1fa8c">&amp;#34;What is your surname?&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sname &lt;span style="color:#ff79c6">=&lt;/span> &lt;span style="color:#8be9fd;font-style:italic">input&lt;/span>(&lt;span style="color:#f1fa8c">&amp;#34;&amp;gt; &amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8be9fd;font-style:italic">print&lt;/span>(&lt;span style="color:#f1fa8c">f&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;&lt;/span>&lt;span style="color:#f1fa8c">{&lt;/span>sname&lt;span style="color:#f1fa8c">}&lt;/span>&lt;span style="color:#f1fa8c"> &lt;/span>&lt;span style="color:#f1fa8c">{&lt;/span>fname&lt;span style="color:#f1fa8c">}&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#6272a4"># ^^^^^^^^^^^^^^^^^^^^^^^^^^^^&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#6272a4"># your program goes above here&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">if&lt;/span> __name__ &lt;span style="color:#ff79c6">==&lt;/span> &lt;span style="color:#f1fa8c">&amp;#34;__main__&amp;#34;&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ex(&lt;span style="color:#8be9fd;font-style:italic">input&lt;/span>,&lt;span style="color:#8be9fd;font-style:italic">print&lt;/span>)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="13-lines-cheat">13. Lines cheat&lt;/h2>
+&lt;p>A naughty pupil has been given lines to copy as a punishment from their Computing teacher. The have been asked to type out “I must not behave like muppet in class” 20 times. Write a program that asks a pupil to enter a sentence. The same sentence should then be displayed 20 times.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-md" data-lang="md">&lt;span style="display:flex;">&lt;span>What sentence would you like copied?
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">I must not behave like a muppet in class.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>I must not behave like a muppet in class.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>I must not behave like a muppet in class.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>I must not behave like a muppet in class.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>I must not behave like a muppet in class.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>I must not behave like a muppet in class.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>I must not behave like a muppet in class.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>I must not behave like a muppet in class.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>I must not behave like a muppet in class.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>I must not behave like a muppet in class.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>I must not behave like a muppet in class.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>I must not behave like a muppet in class.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>I must not behave like a muppet in class.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>I must not behave like a muppet in class.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>I must not behave like a muppet in class.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>I must not behave like a muppet in class.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>I must not behave like a muppet in class.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>I must not behave like a muppet in class.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>I must not behave like a muppet in class.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>I must not behave like a muppet in class.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>I must not behave like a muppet in class.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="14-cricket-over">14. Cricket over&lt;/h2>
+&lt;p>In cricket a bowler bowls 6 balls at a time. This is called an &lt;em>over&lt;/em>. Each ball bowled may be hit by the batter who may score some &lt;em>runs&lt;/em>.
+Write a program that allows the runs from an over to be entered (for example: 0, 2, 0, 0, 4, 6). The total scored in that over should then be displayed.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-md" data-lang="md">&lt;span style="display:flex;">&lt;span>Please enter the runs for each ball:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">0
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">2
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">0
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">0
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">4
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">6
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>This over&amp;#39;s score was 12.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="15-flexible-cheater">15. Flexible cheater&lt;/h2>
+&lt;p>The naughty pupil forgot to hand their lines in and now has more to do. Adapt program 13 to allow the
+pupil to select how many lines the program produces.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-md" data-lang="md">&lt;span style="display:flex;">&lt;span>What sentence would you like copied?
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">I must not behave like a muppet in class.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>How many times would you like it copied?
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">7
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>I must not behave like a muppet in class.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>I must not behave like a muppet in class.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>I must not behave like a muppet in class.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>I must not behave like a muppet in class.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>I must not behave like a muppet in class.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>I must not behave like a muppet in class.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>I must not behave like a muppet in class.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="16-charity-drive">16. Charity drive&lt;/h2>
+&lt;p>The following year the three friends recruit many more charity raisers. Adapt program 11 to repeatedly ask for the next amount of money raised. If the user types a number, that number is added to the total and the program asks again. If the user just presses Enter, with nothing else, the program stops asking and displays the total raised, including the doubled value if appropriate.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-md" data-lang="md">&lt;span style="display:flex;">&lt;span>Enter the total raised by each person:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">238
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">624
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">546
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">333
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">651
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">174
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>A total of $2566 was raised.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>This will be increased to $4566.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="font-weight:bold">## 17. Password
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="font-weight:bold">&lt;/span>The program should give the user an error message if they enter the wrong password. A message “Entry gained!” should be displayed when the password is entered correctly.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>```md
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Please enter the password.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">snool
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>Sorry, Incorrect! Try again.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Please enter the password.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">giraffe
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>Sorry, Incorrect! Try again.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Please enter the password.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">sesame
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>Entry gained!
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="font-weight:bold">## 18. No more presents
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="font-weight:bold">&lt;/span>You have money to spend on your birthday. Write a program that will ask you what you have to spend, and then to enter the price of each present you want until your total reaches or is over the amount you started with. The program should produce the output shown.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>```md
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>How much money did you get?
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">200
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>You have $200.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Price of next item:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">35
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>You have $165.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Price of next item:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">100
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>You have $65.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Price of next item:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">50
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>You have $15.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Price of next item:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">45
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>You have overspent!
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>You can&amp;#39;t afford the $45 item.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-md" data-lang="md">&lt;span style="display:flex;">&lt;span>How much money did you get?
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">48
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>You have $48.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Price of next item:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">48
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>You have spent all $48!
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="19-guess-the-number">19. Guess the number&lt;/h2>
+&lt;p>A game is created where a user is required to guess an unknown number between 1 and 100 (inclusive). Each time the user guesses the program informs them if their guess is too high, too low or correct. The guessing game only finishes when the user’s guess matches the unknown number.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-md" data-lang="md">&lt;span style="display:flex;">&lt;span>I&amp;#39;m thinking of a number between 1 and 100.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Which number do you think it is?
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>45
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Your guess is too low. Try again.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>86
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Your guess is too high. Try again.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>67
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Your guess is too high. Try again.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>50
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Your guess is too low. Try again.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>54
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Your guess is too high. Try again.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>52
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Correct! I was thinking of 52.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="20-dance-group-extension">20. Dance group (extension)&lt;/h2>
+&lt;p>You have been asked to write a program to store the names and ages of competitors in a dance competition. The program should display the name of the competitor and which level of competition they should be entered in. ‘Junior’ competitors are less than 12 years old, ‘Senior’ competitors are at least 18 years old. ‘Intermediate’ competitors are aged 12-17.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-md" data-lang="md">&lt;span style="display:flex;">&lt;span>Please enter a name:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">Jean Gray
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>Please enter Jean Gray&amp;#39;s age:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">13
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>Please enter a name:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">Robert Drake
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>Please enter Robert Drake&amp;#39;s age:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">24
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>Please enter a name:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">Scott Summers
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>Please enter Scott Summers&amp;#39;s age:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">15
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>Please enter a name:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">Anna LeBeau
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>Please enter Anna LeBeau&amp;#39;s age:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;gt; &lt;/span>&lt;span style="text-decoration:underline">9
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="text-decoration:underline">&lt;/span>Please enter a name:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Names and competition list:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Jean Gray - Intermediate
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Robert Drake - Senior
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Scott Summers - Intermediate
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Anna LeBeau - Junior
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
