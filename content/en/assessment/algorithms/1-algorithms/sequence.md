@@ -147,6 +147,7 @@ What is your postcode?
 > 4039
 13 Aberlove Drive
 BUCKHAVEN 4039
+```
 
 ## 8. Super smart name swapper (extension)
 Ask the user to enter their full name on one line, and display their name in reverse order.
