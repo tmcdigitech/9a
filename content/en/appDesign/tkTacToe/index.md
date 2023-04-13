@@ -102,3 +102,106 @@ def move(b):
     b['text'] = players[nextMove]
     nextMove = (nextMove+1)%2
 ```
+
+At this point we can make moves. We now need to tackle the various ways in which the game might end. Let's first handle the case of a draw.
+
+## It's a draw
+
+If each square has been used and nobody has yet won, then the game is a draw. There are several ways we could keep track do this, but the easiest is probably to just count the number of moves that have been made, and to declare a draw when that number gets to 9. Alternatively, count how many moves are left and declare a draw when that number reaches 0.
+
+We're not going to do anything fancy when it is a draw. We're just going to reset the board immediately. To do that, we'll need a reset function.
+
+```python{linenos=table,hl_lines=[3,"9-11","13-16"],linenostart=3}
+nextMove = 0
+players = ['⭕️','❌']
+movesLeft = 9
+def move(b):
+    global nextMove, movesLeft
+    b['state'] = 'disabled'
+    b['text'] = players[nextMove]
+    nextMove = (nextMove+1)%2
+    movesLeft -= 1
+    if movesLeft == 0:
+        reset()
+
+def reset():
+    for b in [b1, b2, b3, b4, b5, b6, b7, b8, b9]:
+        b['state'] = 'normal'
+        b['text'] = '—'
+```
+
+Run the program, and check that it resets at the end. But can you find the bug lurking in our reset code?
+
+If you play a second game, the program will not correctly reset at the end of the second game. Why is that?
+
+After line 11, where we decrement `movesLeft`, add a line saying `print(movesLeft)`. This is called a test print. We're not planning to have this line in the finished program, but it is really helpful to see what the program is up to while you're developing and debugging it.
+
+If you watch the moves left now, you'll notice that while the board resets at the end of the first game, the counter continues to count down into negatives. As a result, the counter doesn't reach zero to signal the end of the second game. We will need to reset the counter in our `reset` function.
+
+```python{linenos=table,hl_lines=5,linenostart=15}
+def reset():
+    for b in [b1, b2, b3, b4, b5, b6, b7, b8, b9]:
+        b['state'] = 'normal'
+        b['text'] = '—'
+        movesLeft = 9
+```
+
+Check that you can play multiple games and the counter is resetting correctly. You will notice it is still broken!
+
+You can now safely remove that test print.
+
+## For the win
+
+Again, there are several ways we could try and tackle monitoring a win. Here's what we're going to do this time.
+To win you must get 3-in-a-row, which can be done in one of eight ways:
+- top row
+- middle row
+- bottom row
+- left column
+- centre column
+- right column
+- forward diagonal
+- backward diagonal
+
+If we check after each move if all three of the squares for each of those eight combinations is the same, we'll know that there is a win. Let's write a function to do that:
+
+```python
+def winCheck():
+    if b1['text'] in players and b1['text'] == b2['text'] and b2['text'] == b3['text']:
+        tk.messagebox.showinfo(title='Game over!', message=f"{b1['text']} wins")
+        return b1['text']
+    if b4['text'] in players and b4['text'] == b5['text'] and b5['text'] == b6['text']:
+        tk.messagebox.showinfo(title='Game over!', message=f"{b4['text']} wins")
+        return b4['text']
+    # and so on
+```
+
+Note that we can't chain equals signs together like this:
+```python
+if b1['text'] == b1['text'] == b1['text']:
+```
+That has a meaning (so it will run without an error) but it won't do what you want.
+
+The `b1['text'] in players` condition checks to see if the text is one of the player symbols and not blank or the dash we're using when we run `reset()`. Otherwise a blank row or column would trigger the win condition.
+
+Lastly, the `showinfo` function displays a popup box with the set title and message. We will need to import the function in order to do this. Add this line just under the `import tkinter as tk` line:
+```python
+from tkinter.messagebox import showinfo
+```
+
+Finish off this (inelegant) function to handle all eight cases.
+
+So the `winCheck` function will check if there is a winner, pop up a message with the winner, and return the winner to whatever called it, or False if there isn't a winner yet. So we can now run this check each time someone moves, just before we check for a draw (because we want a win on the last move to count as a win, not a draw).
+
+```python{linenos=table,hl_lines="7-8",linenostart=7}
+def move(b):
+    global nextMove, movesLeft
+    b['state']='disabled'
+    b['text'] = players[nextMove]
+    nextMove = (nextMove+1)%2
+    movesLeft -= 1
+    if winCheck() is not False:
+        reset()
+    if movesLeft == 0:
+        reset()
+```
