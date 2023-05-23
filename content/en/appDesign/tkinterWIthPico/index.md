@@ -10,13 +10,13 @@ import time
 import board
 import digitalio
 import pwmio
-
+import microcontroller
 
 fan = digitalio.DigitalInOut(board.GP16)
 fan.direction = digitalio.Direction.OUTPUT
 fan.value = False
 
-buzzer = pwmio.PWMOut(board.GP15, frequency=440)
+buzzer = pwmio.PWMOut(board.GP15, variable_frequency=True)
 OFF = 0
 ON = 2**15
 buzzer.duty_cycle = OFF
@@ -27,10 +27,15 @@ while True:
         fan.value = True
     elif(cmd=='f0'):
         fan.value = False
+    elif(cmd=='b2'):
+        buzzer.frequency = 880
+        buzzer.duty_cycle = ON
     elif(cmd=='b1'):
+        buzzer.frequency = 440
         buzzer.duty_cycle = ON
     elif(cmd=='b0'):
         buzzer.duty_cycle = OFF
+    print(microcontroller.cpu.temperature)
 ```
 
 Example code that reads from serial port (not configured to work with above example...).
