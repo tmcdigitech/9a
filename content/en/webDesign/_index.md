@@ -1,6 +1,5 @@
 ---
 title: Web design
-draft: true
 cascade:
     type: docs
 menu:

@@ -201,6 +201,10 @@ enable = true
     icon = "fab fa-python"
     desc = "We use Python"
 
+[params.mermaid]
+enable = true
+version = "latest"
+
 # hugo module configuration
 
 [module]
@@ -208,7 +212,7 @@ enable = true
   # replacements = "github.com/google/docsy -> ../../docsy"
   [module.hugoVersion]
     extended = true
-    min = "0.75.0"
+    min = "0.105.0"
   [[module.imports]]
     path = "github.com/google/docsy"
     disable = false
