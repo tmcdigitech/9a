@@ -3036,4 +3036,107 @@ We can now use this information to help construct the page. In this case we&amp;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;/&lt;span style="color:#ff79c6">html&lt;/span>&amp;gt;
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item></channel></rss>
+&lt;/div></description></item><item><title>WebDesign: Templates with parameters</title><link>https://tmcdigitech.github.io/9a/webdesign/buildingfirstapp/templateswithparameters/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://tmcdigitech.github.io/9a/webdesign/buildingfirstapp/templateswithparameters/</guid><description>
+&lt;p>Now that we have a template, it would be great if we could change little bits of it without having to make a whole new template. And we can.&lt;/p>
+&lt;p>Let&amp;rsquo;s make a really short template to highlight the idea.&lt;/p>
+&lt;p>Here is the file structure for our project:&lt;/p>
+&lt;pre tabindex="0">&lt;code>📂 flask_demo
+├─📄 app.py
+└─📂 templates
+└─📄 base.html
+&lt;/code>&lt;/pre>&lt;p>And here are the files:&lt;/p>
+&lt;h3 id="apppy">&lt;code>app.py&lt;/code>&lt;/h3>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">from&lt;/span> flask &lt;span style="color:#ff79c6">import&lt;/span> Flask, render_template
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>app &lt;span style="color:#ff79c6">=&lt;/span> Flask(__name__)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>@app&lt;span style="color:#ff79c6">.&lt;/span>route(&lt;span style="color:#f1fa8c">&amp;#39;/&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">def&lt;/span> &lt;span style="color:#50fa7b">index&lt;/span>():
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> c &lt;span style="color:#ff79c6">=&lt;/span> &lt;span style="color:#f1fa8c">&amp;#39;I am a boring web server!&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">return&lt;/span> render_template(&lt;span style="color:#f1fa8c">&amp;#39;base.html&amp;#39;&lt;/span>,content&lt;span style="color:#ff79c6">=&lt;/span>c)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>@app&lt;span style="color:#ff79c6">.&lt;/span>route(&lt;span style="color:#f1fa8c">&amp;#39;/about&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">def&lt;/span> &lt;span style="color:#50fa7b">about&lt;/span>():
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> c &lt;span style="color:#ff79c6">=&lt;/span> &lt;span style="color:#f1fa8c">&amp;#39;This is the about page.&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">return&lt;/span> render_template(&lt;span style="color:#f1fa8c">&amp;#39;base.html&amp;#39;&lt;/span>,content&lt;span style="color:#ff79c6">=&lt;/span>c)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>@app&lt;span style="color:#ff79c6">.&lt;/span>route(&lt;span style="color:#f1fa8c">&amp;#39;/faq&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">def&lt;/span> &lt;span style="color:#50fa7b">faq&lt;/span>():
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> c &lt;span style="color:#ff79c6">=&lt;/span> &lt;span style="color:#f1fa8c">&amp;#39;If there were any frequently asked questions, they&lt;/span>&lt;span style="color:#f1fa8c">\&amp;#39;&lt;/span>&lt;span style="color:#f1fa8c">d be answered on this page.&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">return&lt;/span> render_template(&lt;span style="color:#f1fa8c">&amp;#39;base.html&amp;#39;&lt;/span>,content&lt;span style="color:#ff79c6">=&lt;/span>c)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">if&lt;/span> __name__ &lt;span style="color:#ff79c6">==&lt;/span> &lt;span style="color:#f1fa8c">&amp;#39;__main__&amp;#39;&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> app&lt;span style="color:#ff79c6">.&lt;/span>run(debug&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#ff79c6">True&lt;/span>)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="templatesbasehtml">&lt;code>templates/base.html&lt;/code>&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-html" data-lang="html">&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#ff79c6">a&lt;/span> &lt;span style="color:#50fa7b">href&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;/&amp;#34;&lt;/span>&amp;gt;[ Home ]&amp;lt;/&lt;span style="color:#ff79c6">a&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#ff79c6">a&lt;/span> &lt;span style="color:#50fa7b">href&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;/about&amp;#34;&lt;/span>&amp;gt;[ About ]&amp;lt;/&lt;span style="color:#ff79c6">a&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#ff79c6">a&lt;/span> &lt;span style="color:#50fa7b">href&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;/faq&amp;#34;&lt;/span>&amp;gt;[ FAQ ]&amp;lt;/&lt;span style="color:#ff79c6">a&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#ff79c6">h1&lt;/span>&amp;gt;A very basic site&amp;lt;/&lt;span style="color:#ff79c6">h1&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#ff79c6">hr&lt;/span> /&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{{ content }}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>When you load the page, you&amp;rsquo;ll see that there is now a menu bar across the top of each page, provided by the template. The part below the line is passed in to the template by our functions. If you look in app.py, each one calls &lt;code>render_template&lt;/code>, tells it which template to use, and then defines the value of the variable &lt;code>content&lt;/code>, which is rendered in the template. The double braces, &lt;code>{{ }}&lt;/code>, are the way to tell the templating engine, Jinja, to print out a python &lt;em>expression&lt;/em> such as a variable.&lt;/p>
+&lt;h2 id="template-protection">Template protection&lt;/h2>
+&lt;p>Try adding HTML tags to the string that you pass to the template, e.g. change line 6 of app.py to read:&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span> c &lt;span style="color:#ff79c6">=&lt;/span> &lt;span style="color:#f1fa8c">&amp;#39;I &amp;lt;em&amp;gt;am&amp;lt;/em&amp;gt; a boring web server!&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>and reload the page. You will notice that the browser displays the tags, rather than rendering them. If you look at the source code of the page, you&amp;rsquo;ll notice that the template engine quietly changed your text to read:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-HTML" data-lang="HTML">&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#ff79c6">a&lt;/span> &lt;span style="color:#50fa7b">href&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;/&amp;#34;&lt;/span>&amp;gt;[ Home ]&amp;lt;/&lt;span style="color:#ff79c6">a&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#ff79c6">a&lt;/span> &lt;span style="color:#50fa7b">href&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;/about&amp;#34;&lt;/span>&amp;gt;[ About ]&amp;lt;/&lt;span style="color:#ff79c6">a&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#ff79c6">a&lt;/span> &lt;span style="color:#50fa7b">href&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;/faq&amp;#34;&lt;/span>&amp;gt;[ FAQ ]&amp;lt;/&lt;span style="color:#ff79c6">a&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#ff79c6">h1&lt;/span>&amp;gt;A very basic site&amp;lt;/&lt;span style="color:#ff79c6">h1&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#ff79c6">hr&lt;/span> /&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>I &amp;amp;lt;em&amp;amp;gt;am&amp;amp;lt;/em&amp;amp;gt; a boring web server!
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The pattern &lt;code>&amp;amp;name;&lt;/code>, i.e. a word flanked by an ampersand and a semicolon is the way to display characters that:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>have magic meanings in HTML, such as &amp;lt;, &amp;gt; and &amp;amp;; or&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>are traditionally hard to enter using your keyboard, such as &lt;code>&amp;amp;deg;&lt;/code> °, &lt;code>&amp;amp;rarr;&lt;/code> → and &lt;code>&amp;amp;euro;&lt;/code> €.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>You can also give the id for any Unicode character, which means you can print things like &lt;code>&amp;amp;#128169;&lt;/code> 💩.&lt;/p>
+&lt;p>In our case here, Jinja deliberately &lt;em>escapes&lt;/em> any magic HTML characters so your strings are free of HTML, which means that they won&amp;rsquo;t stuff up your formatting by mistake. This is particularly a problem if you display text straight from a user. It is possible to turn it off, but you should be able to do what you need to do without ever disabling the safety mechanisms in Flask and Jinja.&lt;/p></description></item><item><title>WebDesign: Child templates</title><link>https://tmcdigitech.github.io/9a/webdesign/buildingfirstapp/subtemplates/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://tmcdigitech.github.io/9a/webdesign/buildingfirstapp/subtemplates/</guid><description>
+&lt;p>You can probably appreciate how nice it is to have a base template to do &lt;em>most&lt;/em> of the template work to create a consistent look: importing style sheets, laying out the screen, handling menus and other site navigation, providing the header and footer. But within that broad structure there are other patterns across pages within this, so we need a template for them which will extend the base template. This is what child templates are for.&lt;/p>
+&lt;pre tabindex="0">&lt;code>📂 flask_demo
+├─📄 app.py
+└─📂 templates
+├─📄 base.html
+├─📄 index.html
+└─📄 page.html
+&lt;/code>&lt;/pre></description></item></channel></rss>

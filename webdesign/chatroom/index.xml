@@ -1,0 +1,83 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>9 Digital Tech – Building a chatroom</title><link>https://tmcdigitech.github.io/9a/webdesign/chatroom/</link><description>Recent content in Building a chatroom on 9 Digital Tech</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://tmcdigitech.github.io/9a/webdesign/chatroom/index.xml" rel="self" type="application/rss+xml"/><item><title>WebDesign: Basic structure</title><link>https://tmcdigitech.github.io/9a/webdesign/chatroom/basicstructure/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://tmcdigitech.github.io/9a/webdesign/chatroom/basicstructure/</guid><description>
+&lt;p>We&amp;rsquo;ll need:&lt;/p>
+&lt;ul>
+&lt;li>an index (home) page, which welcomes people and directs them to log in to the chat room.&lt;/li>
+&lt;li>a login form and handler.&lt;/li>
+&lt;li>a page for the chat room itself, with a form field for chatting.&lt;/li>
+&lt;li>a template to hold everything together&lt;/li>
+&lt;li>some styling, maybe?&lt;/li>
+&lt;li>some way of storing the chat log&lt;/li>
+&lt;/ul>
+&lt;p>Let&amp;rsquo;s start with some basic structure:&lt;/p>
+&lt;pre tabindex="0">&lt;code>📂 chatroom
+├─📄 app.py
+├─📂 static
+│ └─📄 main.css
+└─📂 templates
+├─📄 base.html
+├─📄 chat.html
+├─📄 index.html
+└─📄 login.html
+&lt;/code>&lt;/pre>&lt;h3 id="apppy">&lt;code>app.py&lt;/code>&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">from&lt;/span> flask &lt;span style="color:#ff79c6">import&lt;/span> Flask, render_template
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>app &lt;span style="color:#ff79c6">=&lt;/span> Flask(__name__)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>@app&lt;span style="color:#ff79c6">.&lt;/span>route(&lt;span style="color:#f1fa8c">&amp;#39;/&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">def&lt;/span> &lt;span style="color:#50fa7b">index&lt;/span>():
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">return&lt;/span> render_template(&lt;span style="color:#f1fa8c">&amp;#39;index.html&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>@app&lt;span style="color:#ff79c6">.&lt;/span>route(&lt;span style="color:#f1fa8c">&amp;#39;/login&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">def&lt;/span> &lt;span style="color:#50fa7b">login&lt;/span>():
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">return&lt;/span> render_template(&lt;span style="color:#f1fa8c">&amp;#39;login.html&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>@app&lt;span style="color:#ff79c6">.&lt;/span>route(&lt;span style="color:#f1fa8c">&amp;#39;/chat&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">def&lt;/span> &lt;span style="color:#50fa7b">chat&lt;/span>():
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">return&lt;/span> render_template(&lt;span style="color:#f1fa8c">&amp;#39;chat.html&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">if&lt;/span> __name__ &lt;span style="color:#ff79c6">==&lt;/span> &lt;span style="color:#f1fa8c">&amp;#39;__main__&amp;#39;&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> app&lt;span style="color:#ff79c6">.&lt;/span>run(debug&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#ff79c6">True&lt;/span>)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="staticmaincss">&lt;code>static/main.css&lt;/code>&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-css" data-lang="css">&lt;span style="display:flex;">&lt;span>@&lt;span style="color:#ff79c6">import&lt;/span> &lt;span style="color:#ff79c6">url&lt;/span>&lt;span style="color:#ff79c6">(&lt;/span>&lt;span style="color:#f1fa8c">&amp;#39;https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&amp;amp;display=swap&amp;#39;&lt;/span>&lt;span style="color:#ff79c6">)&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">body&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">font-family&lt;/span>: &lt;span style="color:#f1fa8c">&amp;#34;Ubuntu&amp;#34;&lt;/span>, &lt;span style="color:#ff79c6">sans-serif&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="templatesbasehtml">&lt;code>templates/base.html&lt;/code>&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-html" data-lang="html">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">&amp;lt;!DOCTYPE html&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#ff79c6">html&lt;/span> &lt;span style="color:#50fa7b">lang&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;en&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#ff79c6">head&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#ff79c6">meta&lt;/span> &lt;span style="color:#50fa7b">charset&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;UTF-8&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#ff79c6">meta&lt;/span> &lt;span style="color:#50fa7b">name&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;viewport&amp;#34;&lt;/span> &lt;span style="color:#50fa7b">content&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;width=device-width, initial-scale=1.0&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#ff79c6">title&lt;/span>&amp;gt;Blathr | {% block title %}:-){% endblock %}&amp;lt;/&lt;span style="color:#ff79c6">title&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#ff79c6">link&lt;/span> &lt;span style="color:#50fa7b">rel&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;stylesheet&amp;#34;&lt;/span> &lt;span style="color:#50fa7b">href&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;static/main.css&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;/&lt;span style="color:#ff79c6">head&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#ff79c6">body&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#ff79c6">h1&lt;/span>&amp;gt;Blathr &amp;lt;&lt;span style="color:#ff79c6">span&lt;/span> &lt;span style="color:#50fa7b">style&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;color: 888;&amp;#34;&lt;/span>&amp;gt;— a simple chat service&amp;lt;/&lt;span style="color:#ff79c6">span&lt;/span>&amp;gt;&amp;lt;/&lt;span style="color:#ff79c6">h1&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#ff79c6">a&lt;/span> &lt;span style="color:#50fa7b">href&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;/&amp;#34;&lt;/span>&amp;gt;[ Home ]&amp;lt;/&lt;span style="color:#ff79c6">a&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#ff79c6">a&lt;/span> &lt;span style="color:#50fa7b">href&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;/login&amp;#34;&lt;/span>&amp;gt;[ Start ]&amp;lt;/&lt;span style="color:#ff79c6">a&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#ff79c6">a&lt;/span> &lt;span style="color:#50fa7b">href&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;/chat&amp;#34;&lt;/span>&amp;gt;[ Chat ]&amp;lt;/&lt;span style="color:#ff79c6">a&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#ff79c6">hr&lt;/span>/&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {% block content %}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {% endblock %}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;/&lt;span style="color:#ff79c6">body&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;/&lt;span style="color:#ff79c6">html&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="templateschathtml">&lt;code>templates/chat.html&lt;/code>&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-html" data-lang="html">&lt;span style="display:flex;">&lt;span>{% extends &amp;#39;base.html&amp;#39; %}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{% block content %}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#ff79c6">p&lt;/span>&amp;gt;This is the chat room for Blathr.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Chat log and somewhere to type are on the way!&amp;lt;/&lt;span style="color:#ff79c6">p&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{% endblock %}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="templatesindexhtml">&lt;code>templates/index.html&lt;/code>&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-html" data-lang="html">&lt;span style="display:flex;">&lt;span>{% extends &amp;#39;base.html&amp;#39; %}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{% block content %}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#ff79c6">p&lt;/span>&amp;gt;This is the index page for Blathr.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>There&amp;#39;ll be some welcoming
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>writing here at some point...&amp;lt;/&lt;span style="color:#ff79c6">p&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{% endblock %}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="templatesloginhtml">&lt;code>templates/login.html&lt;/code>&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-html" data-lang="html">&lt;span style="display:flex;">&lt;span>{% extends &amp;#39;base.html&amp;#39; %}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{% block content %}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#ff79c6">p&lt;/span>&amp;gt;This is the login page for Blathr.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Form to come...&amp;lt;/&lt;span style="color:#ff79c6">p&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{% endblock %}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
