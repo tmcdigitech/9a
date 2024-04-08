@@ -15,6 +15,7 @@ Let's start with some basic structure:
 ```
 📂 chatroom
  ├─📄 app.py
+ ├─📄 app_config.py
  ├─📂 static
  │  └─📄 main.css
  └─📂 templates
@@ -27,8 +28,11 @@ Let's start with some basic structure:
 ### `app.py`
 ```python
 from flask import Flask, render_template
+import app_config
+
 app = Flask(__name__)
- 
+app.config.from_object(app_config)
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -42,7 +46,14 @@ def chat():
     return render_template('chat.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host=app_config.HOST,port=app_config.PORT, debug=app_config.DEBUG_MODE)
+```
+
+### `app_config.py`
+```python
+DEBUG_MODE = True
+HOST = '127.0.0.1'
+PORT = 8000
 ```
 
 ### `static/main.css`
