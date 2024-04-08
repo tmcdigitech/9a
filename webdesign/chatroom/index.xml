@@ -11,6 +11,7 @@
 &lt;p>Let&amp;rsquo;s start with some basic structure:&lt;/p>
 &lt;pre tabindex="0">&lt;code>📂 chatroom
 ├─📄 app.py
+├─📄 app_config.py
 ├─📂 static
 │ └─📄 main.css
 └─📂 templates
@@ -20,7 +21,10 @@
 └─📄 login.html
 &lt;/code>&lt;/pre>&lt;h3 id="apppy">&lt;code>app.py&lt;/code>&lt;/h3>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">from&lt;/span> flask &lt;span style="color:#ff79c6">import&lt;/span> Flask, render_template
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">import&lt;/span> app_config
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>app &lt;span style="color:#ff79c6">=&lt;/span> Flask(__name__)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>app&lt;span style="color:#ff79c6">.&lt;/span>config&lt;span style="color:#ff79c6">.&lt;/span>from_object(app_config)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>@app&lt;span style="color:#ff79c6">.&lt;/span>route(&lt;span style="color:#f1fa8c">&amp;#39;/&amp;#39;&lt;/span>)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">def&lt;/span> &lt;span style="color:#50fa7b">index&lt;/span>():
@@ -35,7 +39,11 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">return&lt;/span> render_template(&lt;span style="color:#f1fa8c">&amp;#39;chat.html&amp;#39;&lt;/span>)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">if&lt;/span> __name__ &lt;span style="color:#ff79c6">==&lt;/span> &lt;span style="color:#f1fa8c">&amp;#39;__main__&amp;#39;&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> app&lt;span style="color:#ff79c6">.&lt;/span>run(debug&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#ff79c6">True&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> app&lt;span style="color:#ff79c6">.&lt;/span>run(host&lt;span style="color:#ff79c6">=&lt;/span>app_config&lt;span style="color:#ff79c6">.&lt;/span>HOST,port&lt;span style="color:#ff79c6">=&lt;/span>app_config&lt;span style="color:#ff79c6">.&lt;/span>PORT, debug&lt;span style="color:#ff79c6">=&lt;/span>app_config&lt;span style="color:#ff79c6">.&lt;/span>DEBUG_MODE)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="app_configpy">&lt;code>app_config.py&lt;/code>&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>DEBUG_MODE &lt;span style="color:#ff79c6">=&lt;/span> &lt;span style="color:#ff79c6">True&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>HOST &lt;span style="color:#ff79c6">=&lt;/span> &lt;span style="color:#f1fa8c">&amp;#39;127.0.0.1&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>PORT &lt;span style="color:#ff79c6">=&lt;/span> &lt;span style="color:#bd93f9">8000&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="staticmaincss">&lt;code>static/main.css&lt;/code>&lt;/h3>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-css" data-lang="css">&lt;span style="display:flex;">&lt;span>@&lt;span style="color:#ff79c6">import&lt;/span> &lt;span style="color:#ff79c6">url&lt;/span>&lt;span style="color:#ff79c6">(&lt;/span>&lt;span style="color:#f1fa8c">&amp;#39;https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&amp;amp;display=swap&amp;#39;&lt;/span>&lt;span style="color:#ff79c6">)&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
@@ -79,5 +87,47 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{% block content %}
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#ff79c6">p&lt;/span>&amp;gt;This is the login page for Blathr.
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Form to come...&amp;lt;/&lt;span style="color:#ff79c6">p&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{% endblock %}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>WebDesign: Logging in</title><link>https://tmcdigitech.github.io/9a/webdesign/chatroom/withlogin/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://tmcdigitech.github.io/9a/webdesign/chatroom/withlogin/</guid><description>
+&lt;h3 id="apppy">&lt;code>app.py&lt;/code>&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">from&lt;/span> flask &lt;span style="color:#ff79c6">import&lt;/span> Flask, render_template, request
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">import&lt;/span> app_config
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>app &lt;span style="color:#ff79c6">=&lt;/span> Flask(__name__)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>app&lt;span style="color:#ff79c6">.&lt;/span>config&lt;span style="color:#ff79c6">.&lt;/span>from_object(app_config)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>@app&lt;span style="color:#ff79c6">.&lt;/span>route(&lt;span style="color:#f1fa8c">&amp;#39;/&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">def&lt;/span> &lt;span style="color:#50fa7b">index&lt;/span>():
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">return&lt;/span> render_template(&lt;span style="color:#f1fa8c">&amp;#39;index.html&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>@app&lt;span style="color:#ff79c6">.&lt;/span>route(&lt;span style="color:#f1fa8c">&amp;#34;/login&amp;#34;&lt;/span>, methods &lt;span style="color:#ff79c6">=&lt;/span> [&lt;span style="color:#f1fa8c">&amp;#39;GET&amp;#39;&lt;/span>, &lt;span style="color:#f1fa8c">&amp;#39;POST&amp;#39;&lt;/span>])
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">def&lt;/span> &lt;span style="color:#50fa7b">login&lt;/span>():
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">if&lt;/span> request&lt;span style="color:#ff79c6">.&lt;/span>method&lt;span style="color:#ff79c6">==&lt;/span>&lt;span style="color:#f1fa8c">&amp;#39;GET&amp;#39;&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">return&lt;/span> render_template(&lt;span style="color:#f1fa8c">&amp;#39;login.html&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> dn &lt;span style="color:#ff79c6">=&lt;/span> request&lt;span style="color:#ff79c6">.&lt;/span>form[&lt;span style="color:#f1fa8c">&amp;#39;displayName&amp;#39;&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> pw &lt;span style="color:#ff79c6">=&lt;/span> request&lt;span style="color:#ff79c6">.&lt;/span>form[&lt;span style="color:#f1fa8c">&amp;#39;password&amp;#39;&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">return&lt;/span> &lt;span style="color:#f1fa8c">f&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;You logged in as &lt;/span>&lt;span style="color:#f1fa8c">{&lt;/span>dn&lt;span style="color:#f1fa8c">}&lt;/span>&lt;span style="color:#f1fa8c"> with a password of &lt;/span>&lt;span style="color:#f1fa8c">{&lt;/span>pw&lt;span style="color:#f1fa8c">}&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>@app&lt;span style="color:#ff79c6">.&lt;/span>route(&lt;span style="color:#f1fa8c">&amp;#39;/nochat&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">def&lt;/span> &lt;span style="color:#50fa7b">chat&lt;/span>():
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">return&lt;/span> render_template(&lt;span style="color:#f1fa8c">&amp;#39;chat.html&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">if&lt;/span> __name__ &lt;span style="color:#ff79c6">==&lt;/span> &lt;span style="color:#f1fa8c">&amp;#39;__main__&amp;#39;&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> app&lt;span style="color:#ff79c6">.&lt;/span>run(host&lt;span style="color:#ff79c6">=&lt;/span>app_config&lt;span style="color:#ff79c6">.&lt;/span>HOST,port&lt;span style="color:#ff79c6">=&lt;/span>app_config&lt;span style="color:#ff79c6">.&lt;/span>PORT, debug&lt;span style="color:#ff79c6">=&lt;/span>app_config&lt;span style="color:#ff79c6">.&lt;/span>DEBUG_MODE)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="templatesloginhtml">&lt;code>templates/login.html&lt;/code>&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-html" data-lang="html">&lt;span style="display:flex;">&lt;span>{% extends &amp;#39;base.html&amp;#39; %}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{% block content %}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#ff79c6">p&lt;/span>&amp;gt;This is the login page for Blathr.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Form to come...&amp;lt;/&lt;span style="color:#ff79c6">p&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#ff79c6">form&lt;/span> &lt;span style="color:#50fa7b">target&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;/login&amp;#34;&lt;/span> &lt;span style="color:#50fa7b">method&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;POST&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#ff79c6">label&lt;/span> &lt;span style="color:#50fa7b">for&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;displayName&amp;#34;&lt;/span>&amp;gt;Display name&amp;lt;/&lt;span style="color:#ff79c6">label&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#ff79c6">input&lt;/span> &lt;span style="color:#50fa7b">type&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;text&amp;#34;&lt;/span> &lt;span style="color:#50fa7b">id&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;displayName&amp;#34;&lt;/span> &lt;span style="color:#50fa7b">name&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;displayName&amp;#34;&lt;/span> &lt;span style="color:#50fa7b">value&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;&amp;#34;&lt;/span> &lt;span style="color:#50fa7b">placeholder&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;What do you want to call yourself?&amp;#34;&lt;/span>/&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#ff79c6">br&lt;/span>/&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#ff79c6">label&lt;/span> &lt;span style="color:#50fa7b">for&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;password&amp;#34;&lt;/span>&amp;gt;Password&amp;lt;/&lt;span style="color:#ff79c6">label&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#ff79c6">input&lt;/span> &lt;span style="color:#50fa7b">type&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;password&amp;#34;&lt;/span> &lt;span style="color:#50fa7b">id&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;password&amp;#34;&lt;/span> &lt;span style="color:#50fa7b">name&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;password&amp;#34;&lt;/span> &lt;span style="color:#50fa7b">value&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;&amp;#34;&lt;/span> &lt;span style="color:#50fa7b">placeholder&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;What is your secret word?&amp;#34;&lt;/span>/&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#ff79c6">br&lt;/span>/&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &amp;lt;&lt;span style="color:#ff79c6">input&lt;/span> &lt;span style="color:#50fa7b">type&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;submit&amp;#34;&lt;/span> &lt;span style="color:#50fa7b">name&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;login&amp;#34;&lt;/span> &lt;span style="color:#50fa7b">value&lt;/span>&lt;span style="color:#ff79c6">=&lt;/span>&lt;span style="color:#f1fa8c">&amp;#34;Login&amp;#34;&lt;/span>/&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;/&lt;span style="color:#ff79c6">form&lt;/span>&amp;gt;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>{% endblock %}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
