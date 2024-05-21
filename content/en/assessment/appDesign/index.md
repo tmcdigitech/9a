@@ -1,6 +1,8 @@
 ---
 title: 5. Web Development Project
 ---
+[App Planning Template](AppPlanning.docx)
+
 Design and develop an interactive interactive website using Flask and Python. The website must be user friendly, informative and appealing to the end user. Using a theme of your choice, design and develop a website using Flask and Python. Your website must have the following features:
 
 - HTML Templates (4 pages)
