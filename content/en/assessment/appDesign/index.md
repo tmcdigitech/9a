@@ -1,11 +1,35 @@
 ---
-title: App Design
-draft: true
+title: 5. Web Development Project
 ---
-Your task is to design and prototype a simple app which solves some specified problem. The app must control some real hardware connected to a Rasperry Pi Pico. For example, you could build a home-automation interface, a burglar alarm, or maybe a set of accessible traffic lights.
+Design and develop an interactive interactive website using Flask and Python. The website must be user friendly, informative and appealing to the end user. Using a theme of your choice, design and develop a website using Flask and Python. Your website must have the following features:
 
-Use this [template](AppPlanning.docx) to plan and document your work.
+- HTML Templates (4 pages)
+- Bootstrap/PicoCSS Header
+- Custom CSS
+- Images
+- Navigation
+- Login page using sessions
 
-The first time you connect your Pico, you may need to copy [this file](https://downloads.circuitpython.org/bin/raspberry_pi_pico_w/en_US/adafruit-circuitpython-raspberry_pi_pico_w-en_US-8.0.5.uf2)
+## Purpose
+Develop computational skills by designing and developing an interactive website using Flask and Python. 
 
-![Pico W pinout](https://www.raspberrypi-spy.co.uk/wp-content/uploads/2022/11/raspberry_pi_pico_w_pinout.png)
+## Learning Behaviours
+This task provides the following opportunities to develop and demonstrate the Learner Behaviours:
+
+Driven
+: Engages in all the aspects of the Design Thinking Process with initiative and seeks feedback during the development of their project.
+
+Curious
+: Explores and tests ideas by asking questions, researching and through trial and error when learning new skills or developing solutions 
+
+Collaborators
+: Works in teams to solve problems and create new information. Willingly shares new skills and knowledge and assists others and seeks assistance from peers.
+
+Connected
+: Connects programming constructs and data structures to real life applications and is able to explore and discuss issues and ethical implications of their solution 
+
+Flexible Thinkers
+: Applies new knowledge and skills to solve problems and is able to adapt and recognize patterns in other solutions
+
+Disciplined
+: Motivated learner who demonstrates initiative by following a project management process to complete a project
