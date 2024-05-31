@@ -161,7 +161,7 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>@app&lt;span style="color:#ff79c6">.&lt;/span>route(&lt;span style="color:#f1fa8c">&amp;#39;/chat&amp;#39;&lt;/span>, methods&lt;span style="color:#ff79c6">=&lt;/span>[&lt;span style="color:#f1fa8c">&amp;#39;get&amp;#39;&lt;/span>,&lt;span style="color:#f1fa8c">&amp;#39;post&amp;#39;&lt;/span>])
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ff79c6">def&lt;/span> &lt;span style="color:#50fa7b">chat&lt;/span>():
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">if&lt;/span> &lt;span style="color:#ff79c6">not&lt;/span> session &lt;span style="color:#ff79c6">or&lt;/span> &lt;span style="color:#f1fa8c">&amp;#39;uname&amp;#39;&lt;/span> &lt;span style="color:#ff79c6">not&lt;/span> &lt;span style="color:#ff79c6">in&lt;/span> session:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> redirect(url_for(&lt;span style="color:#f1fa8c">&amp;#39;login&amp;#39;&lt;/span>))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">return&lt;/span> redirect(url_for(&lt;span style="color:#f1fa8c">&amp;#39;login&amp;#39;&lt;/span>))
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#6272a4"># Load posts from file&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ff79c6">with&lt;/span> &lt;span style="color:#8be9fd;font-style:italic">open&lt;/span>(&lt;span style="color:#f1fa8c">&amp;#34;chat.json&amp;#34;&lt;/span>,&lt;span style="color:#f1fa8c">&amp;#34;r&amp;#34;&lt;/span>) &lt;span style="color:#ff79c6">as&lt;/span> posts_file:
