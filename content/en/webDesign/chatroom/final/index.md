@@ -36,7 +36,7 @@ def index():
 @app.route('/chat', methods=['get','post'])
 def chat():
     if not session or 'uname' not in session:
-        redirect(url_for('login'))
+        return redirect(url_for('login'))
 
     # Load posts from file
     with open("chat.json","r") as posts_file:
